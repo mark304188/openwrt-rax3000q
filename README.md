@@ -1,3 +1,24 @@
+## OpenWrt for CMCC RAX3000Q
+
+> ⚠️ This is a fork of the official OpenWrt project with support for CMCC RAX3000Q.
+
+### ✅ Current Status
+
+The following features are working:
+
+- WiFi
+- Ethernet switch
+- SPI NAND
+- LEDs
+- Reset button
+
+### 🚧 Work in Progress
+
+- System upgrade (firmware upgrade) is still under development
+- MAC address for WAN LAN WiFi
+
+
+
 ![OpenWrt logo](include/logo.png)
 
 OpenWrt Project is a Linux operating system targeting embedded devices. Instead
