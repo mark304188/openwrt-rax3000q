@@ -1,6 +1,6 @@
 ## OpenWrt for CMCC RAX3000Q
 
-> ⚠️ This is a fork of the official OpenWrt project with support for CMCC RAX3000Q.
+> This is a fork of the official OpenWrt project with support for CMCC RAX3000Q.
 
 ### ✅ Current Status
 
@@ -17,7 +17,15 @@ The following features are working:
 - System upgrade (firmware upgrade) is still under development
 - MAC address for WAN LAN WiFi
 
+### ⚠️ Known Limitations
 
+- The device has only 256MB RAM, which is insufficient for running LuCI
+  together with the full ath11k driver.(less than 20M free)
+- Frequent OOM (Out-Of-Memory) conditions may occur under normal usage.
+
+### Disclaimer
+
+This fork is intended for experimental and development purposes only.
 
 ![OpenWrt logo](include/logo.png)
 
