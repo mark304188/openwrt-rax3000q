@@ -27,6 +27,59 @@ The following features are working:
 
 This fork is intended for experimental and development purposes only.
 
+# Flashing Guide
+
+This guide explains how to flash OpenWrt on the RAX3000Q router. Please follow each step carefully to avoid bricking your device.  
+
+---
+
+## Prerequisites
+
+- Backup all important data, especially the **ART partition**, as flashing U-Boot will modify the partition table and erase unbacked data.
+- SSH access to the original firmware.
+- `.ubi` firmware file for OpenWrt.
+
+---
+
+## Steps
+
+### 1. Enable SSH and Install U-Boot
+
+1. Follow the instructions in [sfxfs/rax3000qy-OpenWrt](https://github.com/sfxfs/rax3000qy-OpenWrt) to enable SSH access on the stock firmware.
+2. Clear the root password.
+3. Flash **U-Boot**.  
+   ⚠️ **Important:** Flashing U-Boot will change the partition table. Backup all partitions before proceeding. Any unbacked data will be lost after reboot.
+
+---
+
+### 2. Boot into U-Boot Recovery Mode
+
+1. Power off the router.
+2. Press and hold the **Reset** button, then power on the router.
+3. Wait about 10 seconds.
+4. Connect your PC to the router via Ethernet.
+5. Configure your PC network settings:
+   - IP: `192.168.1.8`
+   - Subnet Mask: `255.255.255.0`
+   - Default Gateway: `192.168.1.1`
+
+---
+
+### 3. Upload OpenWrt Firmware
+
+1. Open a browser and go to `http://192.168.1.1`.
+2. Upload the `.ubi` firmware file.
+3. Wait for the router to reboot. After reboot, OpenWrt should be up and running.
+
+---
+
+## Notes
+
+- Ensure the `.ubi` file matches your device model.
+- Do not interrupt the flashing process.
+- Always keep a backup of important partitions, particularly the ART partition, for wireless calibration.
+
+
 ![OpenWrt logo](include/logo.png)
 
 OpenWrt Project is a Linux operating system targeting embedded devices. Instead
