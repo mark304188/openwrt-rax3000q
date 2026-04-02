@@ -181,7 +181,6 @@ platform_do_upgrade() {
 	case "$(board_name)" in
 	cmcc,mr3000d-ci|\
 	cmcc,pz-l8|\
-	cmcc,rax3000q|\
 	elecom,wrc-x3000gs2|\
 	iodata,wn-dax3000gr)
 		local delay
@@ -232,6 +231,7 @@ platform_do_upgrade() {
 		;;
 	yuncore,ax830|\
 	yuncore,ax850|\
+	cmcc,rax3000q|\
 	zyxel,scr50axe)
 		CI_UBIPART="rootfs"
 		remove_oem_ubi_volume ubi_rootfs
