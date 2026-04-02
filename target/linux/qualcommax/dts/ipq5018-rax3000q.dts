@@ -54,21 +54,21 @@
 		pinctrl-names = "default";
 
 		led_status_red: led-0 {
-			gpios = <&tlmm 24 GPIO_ACTIVE_LOW>;
+			gpios = <&tlmm 24 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_RED>;
 			function = LED_FUNCTION_STATUS;
 			default-state = "off";
 		};
 
 		led_status_green: led-1 {
-			gpios = <&tlmm 19 GPIO_ACTIVE_LOW>;
+			gpios = <&tlmm 19 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_GREEN>;
 			function = LED_FUNCTION_STATUS;
 			default-state = "off";
 		};
 
 		led_status_blue: led-2 {
-			gpios = <&tlmm 17 GPIO_ACTIVE_LOW>;
+			gpios = <&tlmm 17 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_BLUE>;
 			function = LED_FUNCTION_WAN;
 			default-state = "off";
