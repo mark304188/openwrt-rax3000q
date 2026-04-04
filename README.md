@@ -36,42 +36,39 @@ This guide explains how to flash OpenWrt on the RAX3000Q router. Please follow e
 ## Prerequisites
 
 - Backup all important data, especially the **ART partition**, as flashing U-Boot will modify the partition table and erase unbacked data.
-- SSH access to the original firmware.
+- UART access
 - `.ubi` firmware file for OpenWrt.
 
 ---
 
 ## Steps
 
-### 1. Enable SSH and Install U-Boot
+1. Connect UART and interrupt U-Boot  
+   - Open serial console (115200n8)  
+   - Power on and stop autoboot  
 
-1. Follow the instructions in [sfxfs/rax3000qy-OpenWrt](https://github.com/sfxfs/rax3000qy-OpenWrt) to enable SSH access on the stock firmware.
-2. Clear the root password.
-3. Flash **U-Boot**.  
-   ⚠️ **Important:** Flashing U-Boot will change the partition table. Backup all partitions before proceeding. Any unbacked data will be lost after reboot.
+2. Configure network  
+   - Connect PC via Ethernet  
+   - Set static IPv4:
+     ```
+     192.168.10.19 / 255.255.255.0
+     ```
 
----
-
-### 2. Boot into U-Boot Recovery Mode
-
-1. Power off the router.
-2. Press and hold the **Reset** button, then power on the router.
-3. Wait about 10 seconds.
-4. Connect your PC to the router via Ethernet.
-5. Configure your PC network settings:
-   - IP: `192.168.1.8`
-   - Subnet Mask: `255.255.255.0`
-   - Default Gateway: `192.168.1.1`
-
----
-
-### 3. Upload OpenWrt Firmware
-
-1. Open a browser and go to `http://192.168.1.1`.
-2. Upload the `.ubi` firmware file.
-3. Wait for the router to reboot. After reboot, OpenWrt should be up and running.
-
----
+3. Start TFTP server  
+   - Place `<firmware>.ubi` in TFTP root  
+   - Start server  
+4. Load firmware in U-Boot
+```
+tftpboot 192.168.10.19:<firmware>.ubi
+```
+5. Flash  
+```
+flash rootfs
+```
+6. Reboot
+```
+reset
+```
 
 ## Notes
 
