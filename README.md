@@ -2,6 +2,8 @@
 
 > This is a fork of the official OpenWrt project with support for CMCC RAX3000Q.
 
+This branch includes **hzyitc's `ath11k: provide smallbuffers variant`** improvement from https://github.com/openwrt/openwrt/pull/21495
+
 ### ✅ Current Status
 
 The following features are working:
@@ -11,17 +13,11 @@ The following features are working:
 - SPI NAND
 - LEDs
 - Reset button
+- sysupgrade
 
 ### 🚧 Work in Progress
 
-- System upgrade (firmware upgrade) is still under development
-- MAC address for WAN LAN WiFi
-
-### ⚠️ Known Limitations
-
-- The device has only 256MB RAM, which is insufficient for running LuCI
-  together with the full ath11k driver.(less than 20M free)
-- Frequent OOM (Out-Of-Memory) conditions may occur under normal usage.
+- MAC address for WAN LAN WiFi (As a temporary workaround, the MAC addresses for WAN LAN 2.4G 5G are derived from the ART partition start, it's necessary to let WiFi work)
 
 ### Disclaimer
 
